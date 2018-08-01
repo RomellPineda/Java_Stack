@@ -23,7 +23,7 @@ public class StringManipulationTest {
         System.out.println(bb);
 
         StringManipulation delta = new StringManipulation();
-        String word = delta.concatSubstring("Hello", 1, 2, "world");
-        System.out.println(word);
+        String wurd = delta.concatSubstring("Hello", 1, 2, "world");
+        System.out.println(wurd);
     }
 }

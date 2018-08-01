@@ -23,6 +23,8 @@ public class StringManipulation {
     }
 
     public String concatSubstring(String a, int b, int c, String d){
-        
+        String spliced = a.substring(b,c);
+        String mod = spliced.concat(d);
+        return mod;
     }
 }
