@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,11 @@ public class SchoolController {
 	public SchoolController(SchoolService sS) {
 		this.sS = sS;
 	}
+	
+	@RequestMapping("/test")
+	public String test() {
+		return "students/new1.jsp";
+	}
 
 	@RequestMapping("/")
 	public String index(Model model) {
@@ -29,7 +35,7 @@ public class SchoolController {
 		return "students/index.jsp";
 	}
 	
-	@RequestMapping("/students/new")
+	@GetMapping("/students/new")
 	public String newStudent(@ModelAttribute("student") Student student, Model model) {
 		List<Instructor> instructors = sS.getAllInstructors();
 		model.addAttribute("instructors", instructors);
