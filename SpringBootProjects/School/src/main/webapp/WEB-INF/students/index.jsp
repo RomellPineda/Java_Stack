@@ -23,6 +23,7 @@
 					<th scope="col">Last Name</th>
 					<th scope="col">Lucky Number</th>
 					<th scope="col">Instructor</th>
+					<th scope="col">Course</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,6 +33,7 @@
 						<td><c:out value="${student.lastName}" /></td>
 						<td><c:out value="${student.luckyNumber}" /></td>
 						<td><c:out value="${student.instructor.firstName}${student.instructor.lastName}" /></td>
+						<td><a href="course/${student.instructor.id}"><c:out value="${student.instructor.subject}" /></a></td>
 					</tr>
 				</c:forEach>
 

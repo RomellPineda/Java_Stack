@@ -17,15 +17,14 @@
 		<h1>Welcome to Fighter Weapon School</h1>
 	</div>
 	<div class="container">
-		<h2>Be advised this is test for bootstrap css operational status</h2>
+		<h2>Be advised this test for bootstrap css operational status</h2>
 		<form action="/send" method="post">
 			<div class="form-group">
 				Your Name: <input class="form-control" type="text" name="name"
 					value="">
 			</div>
 			<div class="form-group">
-				Dojo Location: <select class="form-control" name="location"
-					placeholder="select">
+				Dojo Location: <select class="form-control" name="location">
 					<option selected disabled>Please select</option>
 					<option value="Chicago">Chicago</option>
 					<option value="Dallas">Dallas</option>
@@ -45,7 +44,7 @@
 			</div>
 			<div class="form-group">
 				<p>Comment (optional)</p>
-				<textarea class="form-control" name="comment" value=""></textarea>
+				<textarea class="form-control" name="comment"></textarea>
 			</div>
 			<input class="btn btn-info btn-lg btn-block" type="submIt" value="Submit"
 				style="float: right">

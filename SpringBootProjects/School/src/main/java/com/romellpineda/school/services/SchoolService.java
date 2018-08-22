@@ -1,6 +1,7 @@
 package com.romellpineda.school.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -32,5 +33,27 @@ public class SchoolService {
 	public List<Student> getAllStudents() {
 		return sR.findAll();
 	}
-	
+
+	public Instructor findInstructor(Long id) {
+		Optional<Instructor> optionalInstructor = iR.findById(id);
+		if(optionalInstructor.isPresent()) {
+            return optionalInstructor.get();
+        } else {
+            return null;
+        }
+	}
+
+	public void deleteInstructor(Long id) {
+		iR.deleteById(id);
+		
+	}
+// Incorrect: Archived to document initial thought process	
+//	public Instructor findInstructor(Long id) {
+//		Optional<Instructor> optionalInstructor = iR.findById(id);
+//		if(optionalInstructor.isPresent()) {
+//            return optionalInstructor.get();
+//        } else {
+//            return null;
+//        }
+//	}	
 }

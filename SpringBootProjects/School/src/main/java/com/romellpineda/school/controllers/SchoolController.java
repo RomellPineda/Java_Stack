@@ -9,8 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.romellpineda.school.models.Instructor;
 import com.romellpineda.school.models.Student;
@@ -52,4 +54,24 @@ public class SchoolController {
 			return "redirect:/";
 		}
 	}
+// Incorrect: Archived to document initial thought process	
+//	@GetMapping("/course/{id}")
+//    public String show(@PathVariable("id") Long id, Model model) {
+//        Instructor instructor = SchoolService.findInstructor(id);
+//        model.addAttribute("instructor", instructor);
+//        return "/instructor/show.jsp";
+//    }
+	@RequestMapping("/course/{id}")
+    public String show(@PathVariable("id") Long id, Model model) {
+        Instructor instructor = sS.findInstructor(id);
+//        return instructor;
+        model.addAttribute("instructor", instructor);
+        return "/instructor/show.jsp";
+    }
+	
+	@RequestMapping(value="/course/{id}/delete", method=RequestMethod.DELETE)
+    public String destroy(@PathVariable("id") Long id) {
+        sS.deleteInstructor(id);
+        return "redirect:/";
+    }
 }
