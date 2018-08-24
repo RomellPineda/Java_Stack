@@ -47,6 +47,11 @@ public class SchoolService {
 		iR.deleteById(id);
 		
 	}
+	
+	public void updateInstructor(@Valid Instructor instructor) {
+		iR.save(instructor);
+	}
+	
 // Incorrect: Archived to document initial thought process	
 //	public Instructor findInstructor(Long id) {
 //		Optional<Instructor> optionalInstructor = iR.findById(id);
@@ -56,4 +61,14 @@ public class SchoolService {
 //            return null;
 //        }
 //	}	
+
+
+//	public Student findStudent(Long id) {
+//		Optional<Student> optionalStudent = sR.findById(id);
+//		if(optionalStudent.isPresent()) {
+//            return optionalStudent.get();
+//        } else {
+//            return null;
+//        }
+//	}
 }

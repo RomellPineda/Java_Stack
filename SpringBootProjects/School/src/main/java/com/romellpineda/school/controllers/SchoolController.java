@@ -64,9 +64,27 @@ public class SchoolController {
 	@RequestMapping("/course/{id}")
     public String show(@PathVariable("id") Long id, Model model) {
         Instructor instructor = sS.findInstructor(id);
-//        return instructor;
         model.addAttribute("instructor", instructor);
+//        Student student = sS.findStudent(id);
+//        model.addAttribute("student", student);
         return "/instructor/show.jsp";
+    }
+	
+	@RequestMapping("/course/{id}/edit")
+    public String edit(@PathVariable("id") Long id, Model model) {
+        Instructor instructor = sS.findInstructor(id);
+        model.addAttribute("instructor", instructor);
+        return "/students/edit.jsp";
+    }
+    
+    @RequestMapping(value="/update/{id}", method=RequestMethod.PUT)
+    public String update(@Valid @ModelAttribute("instructor") Instructor instructor, BindingResult result) {
+        if (result.hasErrors()) {
+            return "/students/edit.jsp";
+        } else {
+            sS.updateInstructor(instructor);
+            return "redirect:/";
+        }
     }
 	
 	@RequestMapping(value="/course/{id}/delete", method=RequestMethod.DELETE)
