@@ -12,7 +12,7 @@ public class StringManipulation {
     public Integer getIndexOrNull(String a, char b) {
         Integer yield = a.indexOf(b);
         if(yield == -1){
-            return 0;
+            return null;
         }
         return yield;
     }
@@ -21,7 +21,7 @@ public class StringManipulation {
     public Integer getIndexOrNull(String a, String b) {
         Integer yield = a.indexOf(b);
         if(yield == -1){
-            return 0;
+            return null;
         }
         return yield;
     }

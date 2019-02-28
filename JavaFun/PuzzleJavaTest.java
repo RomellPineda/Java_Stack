@@ -5,5 +5,8 @@ public class PuzzleJavaTest {
 
         PuzzleJava name = new PuzzleJava();
         System.out.println(name.names());
+
+        PuzzleJava alpha = new PuzzleJava();
+        alpha.alphabet();
     }
 }
