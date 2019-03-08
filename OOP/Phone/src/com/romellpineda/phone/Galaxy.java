@@ -12,11 +12,5 @@ public class Galaxy extends Phone implements Ringable {
     public String unlock() {
         return "biometric recognition";
     }
-    @Override
-    public void displayInfo() {
-    	System.out.println(this.getVersionNumber());
-    	System.out.println(this.getBatteryPercentage());
-    	System.out.println(this.getCarrier());
-    	System.out.println(this.getRingTone());
-    }
+    
 }

@@ -14,7 +14,13 @@ public abstract class Phone {
     }
     
     // abstract method. This method will be implemented by the subclasses
-    public abstract void displayInfo();
+    public void displayInfo() {
+    	System.out.println(
+    		"version number: " + this.getVersionNumber() + "\n" +
+    		"carrier: " + this.getCarrier() + "\n" +
+    		"ringtone: " + this.getRingTone()
+    		);
+    }
     
 	public String getVersionNumber() {
 		return versionNumber;
