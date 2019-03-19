@@ -2,7 +2,13 @@ package com.romellpineda.mvc.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,11 +43,20 @@ public class BooksApi {
         return book;
     }
     
-    @RequestMapping(value="/api/books/{id}", method=RequestMethod.PUT)
-    public Book update(@PathVariable("id") Long id, @RequestParam(value="title") String title, @RequestParam(value="description") String desc, @RequestParam(value="language") String lang, @RequestParam(value="pages") Integer numOfPages) {
-        Book book = bookService.updateBook(id, title, desc, lang, numOfPages);
-        return book;
-    }
+    @PutMapping("/api/books/{id}")
+	public String updateBook(@PathVariable("id") Long id, @Valid @ModelAttribute("bookObj") Book book, BindingResult result, Model model) {
+		if(result.hasErrors()) {
+			// show error messages
+			Book b = bookService.findBook(id);
+			model.addAttribute("book", b);
+			return "update failed";	
+		} else  {
+			// create the car
+			bookService.updateBook(book);
+			// redirect to the /cars route
+			return "update successful";
+		}
+	}
     
     @RequestMapping(value="/api/books/{id}", method=RequestMethod.DELETE)
     public void destroy(@PathVariable("id") Long id) {
