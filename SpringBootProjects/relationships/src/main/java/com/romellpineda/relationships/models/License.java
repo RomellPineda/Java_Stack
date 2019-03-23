@@ -34,7 +34,6 @@ public class License {
     
 	public License(Long id, String number, Date expirationDate, String state, Date createdAt, Date updatedAt,
 			Person person) {
-		super();
 		this.id = id;
 		this.number = number;
 		this.expirationDate = expirationDate;
