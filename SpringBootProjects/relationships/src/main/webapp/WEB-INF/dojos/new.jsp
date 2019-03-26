@@ -7,9 +7,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>New Dojo</title>
 </head>
 <body>
+	<h1>Start New Dojo</h1>
 	<form:form action="/dojos/new/create" method="post" modelAttribute="dojo">
     <p>
         <form:label path="name">Name</form:label>
