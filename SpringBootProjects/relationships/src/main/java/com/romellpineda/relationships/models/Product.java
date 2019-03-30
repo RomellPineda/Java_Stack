@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -24,8 +26,11 @@ public class Product {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+	@Size(min=1, message="Product must have at least one character")
     private String name;
+	@Size(min=1, message="Product must have at least one character")
     private String description;
+	@Min(0)
     private double price;
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
