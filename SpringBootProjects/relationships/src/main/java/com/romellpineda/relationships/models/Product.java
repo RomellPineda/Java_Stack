@@ -30,7 +30,7 @@ public class Product {
     private String name;
 	@Size(min=1, message="Product must have at least one character")
     private String description;
-	@Min(0)
+	@Min(value=0, message="Product price must be greater than 0")
     private double price;
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")

@@ -7,13 +7,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>New Product</title>
 </head>
 <body>
-
+	<h2>Create a New Product</h2>
 	<p><form:errors path="productObj.*"/></p>
 
-	<form:form action="/product" method="post" modelAttribute="productObj">
+	<form:form action="/products" method="post" modelAttribute="productObj">
     <p>
         <form:label path="name">Name: </form:label>
         <form:input path="name"/>
@@ -24,7 +24,7 @@
     </p>
     <p>
         <form:label path="price">Price: </form:label>
-        <form:input path="price"/>
+        <form:input type="number" min="0.0" path="price"/>
     </p>
     <input type="submit" value="Submit"/>
 </form:form>
